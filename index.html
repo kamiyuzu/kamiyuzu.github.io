@@ -17844,27 +17844,60 @@ var _user$project$Portfolio$header = function (model) {
 		ctor: '::',
 		_0: A2(
 			_debois$elm_mdl$Material_Layout$row,
-			{ctor: '[]'},
+			{
+				ctor: '::',
+				_0: _debois$elm_mdl$Material_Color$background(_debois$elm_mdl$Material_Color$primaryDark),
+				_1: {ctor: '[]'}
+			},
 			{
 				ctor: '::',
 				_0: A2(
 					_debois$elm_mdl$Material_Layout$title,
-					{ctor: '[]'},
+					{
+						ctor: '::',
+						_0: A2(_debois$elm_mdl$Material_Options$css, 'margin', '0px auto 0px auto'),
+						_1: {ctor: '[]'}
+					},
 					{
 						ctor: '::',
 						_0: A2(
-							_elm_lang$html$Html$div,
+							_elm_lang$html$Html$h3,
 							{ctor: '[]'},
 							{
 								ctor: '::',
-								_0: _elm_lang$html$Html$text('Portfolio sketch'),
+								_0: _elm_lang$html$Html$text('Web development practice'),
 								_1: {ctor: '[]'}
 							}),
 						_1: {ctor: '[]'}
 					}),
 				_1: {ctor: '[]'}
 			}),
-		_1: {ctor: '[]'}
+		_1: {
+			ctor: '::',
+			_0: A2(
+				_debois$elm_mdl$Material_Layout$row,
+				{ctor: '[]'},
+				{
+					ctor: '::',
+					_0: A2(
+						_debois$elm_mdl$Material_Layout$title,
+						{ctor: '[]'},
+						{
+							ctor: '::',
+							_0: A2(
+								_elm_lang$html$Html$h3,
+								{ctor: '[]'},
+								{
+									ctor: '::',
+									_0: _elm_lang$html$Html$text('Portfolio sketch'),
+									_1: {ctor: '[]'}
+								}),
+							_1: {ctor: '[]'}
+						}),
+					_1: {ctor: '[]'}
+				}),
+			_1: {ctor: '[]'}
+		}
 	};
 };
 var _user$project$Portfolio$model = {mdl: _debois$elm_mdl$Material$model, raised: -1};
@@ -17880,7 +17913,7 @@ var _user$project$Portfolio$dynamic = F2(
 		return _debois$elm_mdl$Material_Options$many(
 			{
 				ctor: '::',
-				_0: _elm_lang$core$Native_Utils.eq(model.raised, k) ? _debois$elm_mdl$Material_Elevation$e16 : _debois$elm_mdl$Material_Elevation$e3,
+				_0: _elm_lang$core$Native_Utils.eq(model.raised, k) ? _debois$elm_mdl$Material_Elevation$e24 : _debois$elm_mdl$Material_Elevation$e3,
 				_1: {
 					ctor: '::',
 					_0: _debois$elm_mdl$Material_Elevation$transition(300),
@@ -18104,6 +18137,42 @@ var _user$project$Portfolio$button_github = function (model) {
 			_1: {ctor: '[]'}
 		});
 };
+var _user$project$Portfolio$button_linkedin = function (model) {
+	return A5(
+		_debois$elm_mdl$Material_Button$render,
+		_user$project$Portfolio$Mdl,
+		{
+			ctor: '::',
+			_0: 0,
+			_1: {ctor: '[]'}
+		},
+		model.mdl,
+		{
+			ctor: '::',
+			_0: _debois$elm_mdl$Material_Button$icon,
+			_1: {
+				ctor: '::',
+				_0: _debois$elm_mdl$Material_Button$ripple,
+				_1: {
+					ctor: '::',
+					_0: _debois$elm_mdl$Material_Button$link('https://www.linkedin.com/in/alberto-revuelta-arribas-386745145/'),
+					_1: {ctor: '[]'}
+				}
+			}
+		},
+		{
+			ctor: '::',
+			_0: A2(
+				_elm_lang$html$Html$i,
+				{ctor: '[]'},
+				{
+					ctor: '::',
+					_0: A2(_jystic$elm_font_awesome$FontAwesome$linkedin, _elm_lang$core$Color$white, 25),
+					_1: {ctor: '[]'}
+				}),
+			_1: {ctor: '[]'}
+		});
+};
 var _user$project$Portfolio$footer = function (model) {
 	return A2(
 		_debois$elm_mdl$Material_Footer$mini,
@@ -18140,7 +18209,12 @@ var _user$project$Portfolio$footer = function (model) {
 							ctor: '::',
 							_0: _debois$elm_mdl$Material_Footer$html(
 								_user$project$Portfolio$button_github(model)),
-							_1: {ctor: '[]'}
+							_1: {
+								ctor: '::',
+								_0: _debois$elm_mdl$Material_Footer$html(
+									_user$project$Portfolio$button_linkedin(model)),
+								_1: {ctor: '[]'}
+							}
 						}
 					}
 				})
@@ -18206,7 +18280,7 @@ var _user$project$Portfolio$cardInformacion1 = function (model) {
 					},
 					{
 						ctor: '::',
-						_0: _elm_lang$html$Html$text('Hello! I\'m Alberto Revuelta Arribas and I am a computer engineering student based in Alcorcón, Madrid. This is a practice using elm-lang in web development. It also includes material design components. This web is a port to HTML, thing really usefull if the site only forward HTML files.'),
+						_0: _elm_lang$html$Html$text('Hello! I\'m Alberto Revuelta Arribas and I am a computer engineering student based in Alcorcón, Madrid.'),
 						_1: {ctor: '[]'}
 					}),
 				_1: {
@@ -18215,49 +18289,42 @@ var _user$project$Portfolio$cardInformacion1 = function (model) {
 						_debois$elm_mdl$Material_Card$text,
 						{
 							ctor: '::',
-							_0: _debois$elm_mdl$Material_Card$expand,
-							_1: {ctor: '[]'}
+							_0: _user$project$Portfolio$black,
+							_1: {
+								ctor: '::',
+								_0: A2(_debois$elm_mdl$Material_Options$css, 'text-align', 'center'),
+								_1: {ctor: '[]'}
+							}
 						},
-						{ctor: '[]'}),
+						{
+							ctor: '::',
+							_0: _elm_lang$html$Html$text('This is a simple practice using elm-lang in web development. It also includes material design components from debois Elm-package. This web is a port to HTML, thing really usefull if the site only forward HTML files like github pages.'),
+							_1: {ctor: '[]'}
+						}),
 					_1: {
 						ctor: '::',
 						_0: A2(
-							_debois$elm_mdl$Material_Card$actions,
+							_debois$elm_mdl$Material_Card$text,
 							{
 								ctor: '::',
-								_0: _debois$elm_mdl$Material_Card$border,
+								_0: _debois$elm_mdl$Material_Card$expand,
 								_1: {ctor: '[]'}
 							},
 							{ctor: '[]'}),
 						_1: {
 							ctor: '::',
 							_0: A2(
-								_debois$elm_mdl$Material_Card$title,
+								_debois$elm_mdl$Material_Card$actions,
 								{
 									ctor: '::',
-									_0: A2(_debois$elm_mdl$Material_Options$css, 'margin', '0px auto 0px auto'),
+									_0: _debois$elm_mdl$Material_Card$border,
 									_1: {ctor: '[]'}
 								},
-								{
-									ctor: '::',
-									_0: A2(
-										_debois$elm_mdl$Material_Card$head,
-										{
-											ctor: '::',
-											_0: _user$project$Portfolio$black,
-											_1: {ctor: '[]'}
-										},
-										{
-											ctor: '::',
-											_0: _elm_lang$html$Html$text('Programming languages known'),
-											_1: {ctor: '[]'}
-										}),
-									_1: {ctor: '[]'}
-								}),
+								{ctor: '[]'}),
 							_1: {
 								ctor: '::',
 								_0: A2(
-									_debois$elm_mdl$Material_Card$text,
+									_debois$elm_mdl$Material_Card$title,
 									{
 										ctor: '::',
 										_0: A2(_debois$elm_mdl$Material_Options$css, 'margin', '0px auto 0px auto'),
@@ -18265,7 +18332,18 @@ var _user$project$Portfolio$cardInformacion1 = function (model) {
 									},
 									{
 										ctor: '::',
-										_0: _user$project$Portfolio$lenguajes_c(model),
+										_0: A2(
+											_debois$elm_mdl$Material_Card$head,
+											{
+												ctor: '::',
+												_0: _user$project$Portfolio$black,
+												_1: {ctor: '[]'}
+											},
+											{
+												ctor: '::',
+												_0: _elm_lang$html$Html$text('Programming languages known'),
+												_1: {ctor: '[]'}
+											}),
 										_1: {ctor: '[]'}
 									}),
 								_1: {
@@ -18279,7 +18357,7 @@ var _user$project$Portfolio$cardInformacion1 = function (model) {
 										},
 										{
 											ctor: '::',
-											_0: _user$project$Portfolio$lenguajes_bash(model),
+											_0: _user$project$Portfolio$lenguajes_c(model),
 											_1: {ctor: '[]'}
 										}),
 									_1: {
@@ -18293,7 +18371,7 @@ var _user$project$Portfolio$cardInformacion1 = function (model) {
 											},
 											{
 												ctor: '::',
-												_0: _user$project$Portfolio$lenguajes_java(model),
+												_0: _user$project$Portfolio$lenguajes_bash(model),
 												_1: {ctor: '[]'}
 											}),
 										_1: {
@@ -18307,7 +18385,7 @@ var _user$project$Portfolio$cardInformacion1 = function (model) {
 												},
 												{
 													ctor: '::',
-													_0: _user$project$Portfolio$lenguajes_python(model),
+													_0: _user$project$Portfolio$lenguajes_java(model),
 													_1: {ctor: '[]'}
 												}),
 											_1: {
@@ -18321,7 +18399,7 @@ var _user$project$Portfolio$cardInformacion1 = function (model) {
 													},
 													{
 														ctor: '::',
-														_0: _user$project$Portfolio$lenguajes_latex(model),
+														_0: _user$project$Portfolio$lenguajes_python(model),
 														_1: {ctor: '[]'}
 													}),
 												_1: {
@@ -18335,7 +18413,7 @@ var _user$project$Portfolio$cardInformacion1 = function (model) {
 														},
 														{
 															ctor: '::',
-															_0: _user$project$Portfolio$lenguajes_js_html5_css3(model),
+															_0: _user$project$Portfolio$lenguajes_latex(model),
 															_1: {ctor: '[]'}
 														}),
 													_1: {
@@ -18349,7 +18427,7 @@ var _user$project$Portfolio$cardInformacion1 = function (model) {
 															},
 															{
 																ctor: '::',
-																_0: _user$project$Portfolio$lenguajes_elm(model),
+																_0: _user$project$Portfolio$lenguajes_js_html5_css3(model),
 																_1: {ctor: '[]'}
 															}),
 														_1: {
@@ -18358,72 +18436,46 @@ var _user$project$Portfolio$cardInformacion1 = function (model) {
 																_debois$elm_mdl$Material_Card$text,
 																{
 																	ctor: '::',
-																	_0: _debois$elm_mdl$Material_Card$expand,
+																	_0: A2(_debois$elm_mdl$Material_Options$css, 'margin', '0px auto 0px auto'),
 																	_1: {ctor: '[]'}
 																},
-																{ctor: '[]'}),
+																{
+																	ctor: '::',
+																	_0: _user$project$Portfolio$lenguajes_elm(model),
+																	_1: {ctor: '[]'}
+																}),
 															_1: {
 																ctor: '::',
 																_0: A2(
-																	_debois$elm_mdl$Material_Card$actions,
+																	_debois$elm_mdl$Material_Card$text,
 																	{
 																		ctor: '::',
-																		_0: _debois$elm_mdl$Material_Card$border,
-																		_1: {
+																		_0: _debois$elm_mdl$Material_Card$expand,
+																		_1: {ctor: '[]'}
+																	},
+																	{ctor: '[]'}),
+																_1: {
+																	ctor: '::',
+																	_0: A2(
+																		_debois$elm_mdl$Material_Card$actions,
+																		{
 																			ctor: '::',
-																			_0: A2(_debois$elm_mdl$Material_Options$css, 'vertical-align', 'center'),
+																			_0: _debois$elm_mdl$Material_Card$border,
 																			_1: {
 																				ctor: '::',
-																				_0: A2(_debois$elm_mdl$Material_Options$css, 'text-align', 'right'),
+																				_0: A2(_debois$elm_mdl$Material_Options$css, 'vertical-align', 'center'),
 																				_1: {
 																					ctor: '::',
-																					_0: _user$project$Portfolio$black,
-																					_1: {ctor: '[]'}
-																				}
-																			}
-																		}
-																	},
-																	{
-																		ctor: '::',
-																		_0: A5(
-																			_debois$elm_mdl$Material_Button$render,
-																			_user$project$Portfolio$Mdl,
-																			{
-																				ctor: '::',
-																				_0: 8,
-																				_1: {
-																					ctor: '::',
-																					_0: 1,
-																					_1: {ctor: '[]'}
-																				}
-																			},
-																			model.mdl,
-																			{
-																				ctor: '::',
-																				_0: _debois$elm_mdl$Material_Button$icon,
-																				_1: {
-																					ctor: '::',
-																					_0: _debois$elm_mdl$Material_Button$ripple,
+																					_0: A2(_debois$elm_mdl$Material_Options$css, 'text-align', 'right'),
 																					_1: {
 																						ctor: '::',
-																						_0: _debois$elm_mdl$Material_Button$link('https://twitter.com/home?status=Loved%20this%20material%20desing%20practice%20by%20%40flautinguy.%0Ahttps%3A//kamigari.github.io/'),
+																						_0: _user$project$Portfolio$black,
 																						_1: {ctor: '[]'}
 																					}
 																				}
-																			},
-																			{
-																				ctor: '::',
-																				_0: A2(
-																					_elm_lang$html$Html$div,
-																					{ctor: '[]'},
-																					{
-																						ctor: '::',
-																						_0: _user$project$Portfolio$button_twitter_share(model),
-																						_1: {ctor: '[]'}
-																					}),
-																				_1: {ctor: '[]'}
-																			}),
-																		_1: {
+																			}
+																		},
+																		{
 																			ctor: '::',
 																			_0: A5(
 																				_debois$elm_mdl$Material_Button$render,
@@ -18433,7 +18485,7 @@ var _user$project$Portfolio$cardInformacion1 = function (model) {
 																					_0: 8,
 																					_1: {
 																						ctor: '::',
-																						_0: 2,
+																						_0: 1,
 																						_1: {ctor: '[]'}
 																					}
 																				},
@@ -18446,7 +18498,7 @@ var _user$project$Portfolio$cardInformacion1 = function (model) {
 																						_0: _debois$elm_mdl$Material_Button$ripple,
 																						_1: {
 																							ctor: '::',
-																							_0: _debois$elm_mdl$Material_Button$link('https://www.facebook.com/sharer/sharer.php?u=https%3A//kamigari.github.io/'),
+																							_0: _debois$elm_mdl$Material_Button$link('https://twitter.com/home?status=Loved%20this%20material%20desing%20practice%20by%20%40flautinguy.%0Ahttps%3A//kamigari.github.io/'),
 																							_1: {ctor: '[]'}
 																						}
 																					}
@@ -18458,15 +18510,56 @@ var _user$project$Portfolio$cardInformacion1 = function (model) {
 																						{ctor: '[]'},
 																						{
 																							ctor: '::',
-																							_0: _user$project$Portfolio$button_facebook_share(model),
+																							_0: _user$project$Portfolio$button_twitter_share(model),
 																							_1: {ctor: '[]'}
 																						}),
 																					_1: {ctor: '[]'}
 																				}),
-																			_1: {ctor: '[]'}
-																		}
-																	}),
-																_1: {ctor: '[]'}
+																			_1: {
+																				ctor: '::',
+																				_0: A5(
+																					_debois$elm_mdl$Material_Button$render,
+																					_user$project$Portfolio$Mdl,
+																					{
+																						ctor: '::',
+																						_0: 8,
+																						_1: {
+																							ctor: '::',
+																							_0: 2,
+																							_1: {ctor: '[]'}
+																						}
+																					},
+																					model.mdl,
+																					{
+																						ctor: '::',
+																						_0: _debois$elm_mdl$Material_Button$icon,
+																						_1: {
+																							ctor: '::',
+																							_0: _debois$elm_mdl$Material_Button$ripple,
+																							_1: {
+																								ctor: '::',
+																								_0: _debois$elm_mdl$Material_Button$link('https://www.facebook.com/sharer/sharer.php?u=https%3A//kamigari.github.io/'),
+																								_1: {ctor: '[]'}
+																							}
+																						}
+																					},
+																					{
+																						ctor: '::',
+																						_0: A2(
+																							_elm_lang$html$Html$div,
+																							{ctor: '[]'},
+																							{
+																								ctor: '::',
+																								_0: _user$project$Portfolio$button_facebook_share(model),
+																								_1: {ctor: '[]'}
+																							}),
+																						_1: {ctor: '[]'}
+																					}),
+																				_1: {ctor: '[]'}
+																			}
+																		}),
+																	_1: {ctor: '[]'}
+																}
 															}
 														}
 													}
@@ -18597,7 +18690,11 @@ var _user$project$Portfolio$view_ = function (model) {
 		{
 			ctor: '::',
 			_0: _debois$elm_mdl$Material_Layout$fixedHeader,
-			_1: {ctor: '[]'}
+			_1: {
+				ctor: '::',
+				_0: _debois$elm_mdl$Material_Layout$waterfall(true),
+				_1: {ctor: '[]'}
+			}
 		},
 		{
 			header: _user$project$Portfolio$header(model),

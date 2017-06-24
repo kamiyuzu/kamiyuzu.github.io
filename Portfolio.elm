@@ -64,6 +64,7 @@ view_ : Model -> Html Msg
 view_ model =
     Layout.render Mdl model.mdl
         [ Layout.fixedHeader
+        , Layout.waterfall True      
         ]
         { header = header model
         , drawer = []
@@ -124,17 +125,32 @@ button_github model =
   , Button.ripple   
   , Button.link "https://github.com/kamigari"    
   ]
-  [ i [] [ Fa.github Color.white 25 ] ]      
+  [ i [] [ Fa.github Color.white 25 ] ]
+
+button_linkedin : Model -> Html Msg
+button_linkedin model =
+    Button.render Mdl [0] model.mdl
+  [ Button.icon
+  , Button.ripple   
+  , Button.link "https://www.linkedin.com/in/alberto-revuelta-arribas-386745145/"    
+  ]
+  [ i [] [ Fa.linkedin Color.white 25 ] ]            
         
 
 header : Model -> List (Html Msg)
 header model =
-    [ Layout.row []
+    [ Layout.row [ Colour.background ( Colour.primaryDark ) ]
+          [ Layout.title [ css "margin" "0px auto 0px auto" ] [
+                 h3 []
+                     [ text <| "Web development practice" ]
+                ]
+          ]
+    , Layout.row []
           [ Layout.title [] [
-                 div []
+                 h3 []
                      [ text <| "Portfolio sketch" ]
                 ]
-          ]     
+          ]      
     ]        
 
 black : Options.Property c m
@@ -143,7 +159,7 @@ black =
 
 dynamic : Int ->  Model -> Options.Style Msg
 dynamic k model = 
-  [ if model.raised == k then Elevation.e16 else Elevation.e3
+  [ if model.raised == k then Elevation.e24 else Elevation.e3
   , Elevation.transition 300
   , Options.onMouseEnter (Raise k)
   , Options.onMouseLeave (Raise -1)
@@ -235,7 +251,8 @@ cardInformacion1 model =
         , Colour.background ( Colour.primaryContrast )    
         ]
     [ Card.title [ css "margin" "0px auto 0px auto" ] [ Card.head [ black ] [ text "About me" ] ]
-    , Card.text [ black , css "text-align" "center" ] [ text "Hello! I'm Alberto Revuelta Arribas and I am a computer engineering student based in Alcorcón, Madrid. This is a practice using elm-lang in web development. It also includes material design components. This web is a port to HTML, thing really usefull if the site only forward HTML files." ]
+    , Card.text [ black , css "text-align" "center" ] [ text "Hello! I'm Alberto Revuelta Arribas and I am a computer engineering student based in Alcorcón, Madrid." ]
+    , Card.text [ black , css "text-align" "center" ] [ text "This is a simple practice using elm-lang in web development. It also includes material design components from debois Elm-package. This web is a port to HTML, thing really usefull if the site only forward HTML files like github pages." ]    
     , Card.text [ Card.expand ] []
     , Card.actions [ Card.border ] []
     , Card.title [ css "margin" "0px auto 0px auto" ] [ Card.head [ black ] [ text "Programming languages known" ] ]    
@@ -269,7 +286,8 @@ footer model =
             Footer.right []
                 [ Footer.html <| button_twitter model
                 , Footer.html <| button_facebook model
-                , Footer.html <| button_github model    
+                , Footer.html <| button_github model
+                , Footer.html <| button_linkedin model    
                 ]
         }           
 
