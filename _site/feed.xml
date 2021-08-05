@@ -1,4 +1,184 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2020-11-11T21:17:34+01:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Alberto Revuelta Arribas</title><subtitle>Software developer</subtitle><entry><title type="html">First job/internship</title><link href="http://localhost:4000/first-job/" rel="alternate" type="text/html" title="First job/internship" /><published>2020-11-10T00:00:00+01:00</published><updated>2020-11-10T00:00:00+01:00</updated><id>http://localhost:4000/first-job</id><content type="html" xml:base="http://localhost:4000/first-job/">&lt;p&gt;We all have been there, we all have been through it, and you will too 💪. We all, as humans beings, need to conquer the very first job/internship from our lives. We might have different personal motives to accomplish this personal milestone. Moreover the end of this goal may shift from one another. For example:&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2021-08-05T02:55:39+02:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Alberto Revuelta Arribas</title><subtitle>Software engineer</subtitle><entry><title type="html">Let’s talk contract-based</title><link href="http://localhost:4000/contract-based/" rel="alternate" type="text/html" title="Let’s talk contract-based" /><published>2021-07-26T00:00:00+02:00</published><updated>2021-07-26T00:00:00+02:00</updated><id>http://localhost:4000/contract-based</id><content type="html" xml:base="http://localhost:4000/contract-based/">&lt;p&gt;But first let’s talk dirty about testing 🐛&lt;/p&gt;
+
+&lt;p&gt;Why do we need them? What are they? Which types are they? Why the !$@* should I write them every time I develop something new?&lt;/p&gt;
+
+&lt;p&gt;Moreover why should I take care of the existing ones regarding old code. This case is the worst one if the logic is hard to understand… 🤦&lt;/p&gt;
+
+&lt;p&gt;If you want to get the grasp about why this is important please read
+&lt;a href=&quot;https://www.amazon.com/Clean-Code-Handbook-Software-Craftsmanship/dp/0132350882&quot;&gt;Clean Code: A Handbook of Agile Software Craftsmanship&lt;/a&gt;
+from Robert C. Martin. Research a bit about the scout rule inside the book.&lt;/p&gt;
+
+&lt;p&gt;Moreover if you feel like you need more knowledge for tackling big legacy code please read &lt;a href=&quot;https://www.amazon.com/Working-Effectively-Legacy-Michael-Feathers/dp/0131177052&quot;&gt;Working Effectively with Legacy Code&lt;/a&gt; from Michael Feathers.&lt;/p&gt;
+
+&lt;h2 id=&quot;what-is-a-test-&quot;&gt;What is a test 🤔&lt;/h2&gt;
+
+&lt;p&gt;A test is a reusable code from your application which returns the same result over and over again. This means tests are idempotent, it doesn’t matter how many times you run the test suite from your service.&lt;/p&gt;
+
+&lt;p&gt;The result from running your tests the first time and the 147092380th time should be the exact same result ✅. If the test suite fails 🚫 at the 10th run it means you have a 🐛 somewhere. This bug might be related to concurrency, shadowing, etc you name it 🤷&lt;/p&gt;
+
+&lt;p&gt;There are lot of programming languages and lots of testing frameworks. Let’s illustrate one simple test making use of one of the best testing frameworks out there from &lt;a href=&quot;https://www.ruby-lang.org/en/&quot;&gt;Ruby programming language&lt;/a&gt;. The framework from this example is &lt;a href=&quot;https://rspec.info/&quot;&gt;Rspec&lt;/a&gt;. The following code should give you a more detailed example 😄:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/contract-based/rspec.png&quot; alt=&quot;rspec&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;why-do-we-need-testing-&quot;&gt;Why do we need testing 👮&lt;/h2&gt;
+
+&lt;p&gt;Lets expose a possible scenario where you can end up being. This scenario isn’t true luckily for Coverwallet developers 🚀 Our mental health is relieved to not be in this scenario 🤣 Let’s see how many of you can echo or feel that had been in this situation 💀&lt;/p&gt;
+
+&lt;p&gt;Imagine entering a new job. All the software tooling you are surrounded with, it’s the one you are familiar with. You have all the technical knowledge required to work with the stack. Although the codebase has around 3000 lines of code. Moreover, no testing can be found. The documentation you are striving for is shinning by its absence.&lt;/p&gt;
+
+&lt;p&gt;Now that you are inside the company you are in charge of the huge codebase they have. They ask you to implement some new business logic into the bright new codebase you have now inherited.&lt;/p&gt;
+
+&lt;p&gt;What are you going to do now? How will you deliver new business logic? How can you be sure that the new logic is not going to have side effects? Are you confident enough to deliver the required new business logic without testing?&lt;/p&gt;
+
+&lt;p&gt;Your software developer guts already are telling you to start things slow and steady. This means to start writing tests for the side business logic affected by this new requirement. You have the approval from product to spend some huge extra time doing this task. We will focus in this first test existing behavior from the existing codebase.&lt;/p&gt;
+
+&lt;p&gt;Now that we have a firm determination towards the creation of a healthy codebase. How are we going to do it? 🤷&lt;/p&gt;
+
+&lt;p&gt;First of all let’s talk a bit on which types of testing we have. Let’s just talk about the mainstream tests used among all developers.&lt;/p&gt;
+
+&lt;h2 id=&quot;which-types-of-testing-there-are-&quot;&gt;Which types of testing there are? 🤔&lt;/h2&gt;
+
+&lt;p&gt;There are three types of testing you can develop taken into account always your use case. We will give a brief explanation about all of them.&lt;/p&gt;
+
+&lt;h3 id=&quot;unit-testing&quot;&gt;Unit testing&lt;/h3&gt;
+
+&lt;p&gt;This type of testing focus on the smallest parts of your codebase. Most commonly the public functions you expose into your public service behaviors.&lt;/p&gt;
+
+&lt;h3 id=&quot;integration-testing&quot;&gt;Integration testing&lt;/h3&gt;
+
+&lt;p&gt;The integration testing aims to check for more than one layer of dependency inside your codebase. All external requests into any dependency like another service, or a database. As the dependencies can have latency this kind of testing might run a lot slower compared to unit testing.&lt;/p&gt;
+
+&lt;h3 id=&quot;end-to-end-testing-or-functional&quot;&gt;End to end testing or functional&lt;/h3&gt;
+
+&lt;p&gt;This last tests can be seen as chained integration testing. The focus of this testing is to check your whole application works as expected. Checking everything you can pull the thread from one end into the start.&lt;/p&gt;
+
+&lt;p&gt;You can think an example of this testing as tests which checks app the user interface any user can make use of. The goal of this testing is to actually corroborate that the end user can perform what she wants.&lt;/p&gt;
+
+&lt;h2 id=&quot;how-am-i-going-to-test-it-&quot;&gt;How am I going to test it? 😓&lt;/h2&gt;
+
+&lt;p&gt;Now it’s time to decide how we want to test the existing huge codebase we have to maintain. Te new business request involves some changes in an existing endpoint from the service.&lt;/p&gt;
+
+&lt;p&gt;To test this existing code we would follow the London TDD approach. I know we have already the code and how TDD clashes with existing code. If you want to learn more about London TDD approach you can checkout: &lt;a href=&quot;https://team-agile.com/2021/02/06/chicago-and-london-style-tdd/&quot;&gt;blog post&lt;/a&gt;. Moreover to learn more about TDD you can check the video: &lt;a href=&quot;https://www.youtube.com/watch?v=EZ05e7EMOLM&amp;amp;ab_channel=DevTernity&quot;&gt;TDD, Where Did It All Go Wrong&lt;/a&gt; or the book: &lt;a href=&quot;https://www.amazon.com/Test-Driven-Development-Kent-Beck/dp/0321146530&quot;&gt;Test Driven Development: By Example&lt;/a&gt; from Kent Beck.&lt;/p&gt;
+
+&lt;p&gt;To wrap up the important thing we want to highlight from the London TDD approach is to test from the outside in. Test things from the outside of the service towards the business logic into the core.&lt;/p&gt;
+
+&lt;h2 id=&quot;service-example&quot;&gt;Service example&lt;/h2&gt;
+
+&lt;p&gt;Let’s give an example on how is the existing service. Although I would just highlight the code we are going to work with. This will make it somewhat easier as the goal of this post is to learn how to test making use of a type of mocks.&lt;/p&gt;
+
+&lt;p&gt;The service we have inherited is in charge of dealing with the adoption of animals from a local shelter. The service is a &lt;a href=&quot;https://phoenixframework.org/&quot;&gt;Phoenix&lt;/a&gt; application which makes use of &lt;a href=&quot;https://elixir-lang.org/&quot;&gt;Elixir programing language&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;The first and only part we will start testing is for the adoption of an animal from the foster local shelter.&lt;/p&gt;
+
+&lt;h2 id=&quot;elixir-coding-example&quot;&gt;Elixir coding example&lt;/h2&gt;
+
+&lt;p&gt;This is the sample code from the controller file: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;lib/foster_shelter_bigotitos_web/controllers/animal_controller.ex&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/contract-based/controller_generator.png&quot; alt=&quot;controller_generator&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;This code is a piece of smelly cheese as you all can see. All the logic is inside the controller from the &lt;a href=&quot;https://phoenixframework.org/&quot;&gt;Phoenix&lt;/a&gt; application. Although we will try to test the existing code making a segregation from the different layers we have in the shown example.&lt;/p&gt;
+
+&lt;h2 id=&quot;lets-start-testing-&quot;&gt;Lets start testing! 🚀&lt;/h2&gt;
+
+&lt;p&gt;The code we want to test is a request into our server. Lets see from the available routes which is the path for the request:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/contract-based/phx_routes.png&quot; alt=&quot;controller_generator&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;As we can see &lt;a href=&quot;https://phoenixframework.org/&quot;&gt;Phoenix&lt;/a&gt; works with paths: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;animal_path&lt;/code&gt; is the only path we will be interested in. Both PATCH and PUT HTTP requests go through the same controller update/2 method. Now that we now how the users enter our service lets test the controller from the service.&lt;/p&gt;
+
+&lt;h3 id=&quot;testing-errors-from-controller---green&quot;&gt;Testing errors from controller - Green&lt;/h3&gt;
+
+&lt;p&gt;In this first approach we will test the existing behavior from the controller. It doesn’t matter the parameters from the shelter animal from the adoption request. The only important thing from the actual adoption request is the customer email. This information will allow us to retrieve all the customer information from the service. If we can’t make this relationship the adoption request will fail.&lt;/p&gt;
+
+&lt;p&gt;I have put as an example below a possible testing suite which more less fits the actual behavior from the legacy codebase we have inherited. The code needed for this test suite is massive. Moreover we need to actually create the database items for the controller testing. This means we have database dependency inside our testing suite.&lt;/p&gt;
+
+&lt;p&gt;There is a lot of code from the actual test suite which is screaming to be moved out of this context. The way a test needs to be structured, all the dependencies it requires it will also tell you where it really needs to be. Without further ado check in the example below a simple testing for this legacy codebase.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/contract-based/test_controller_generators.png&quot; alt=&quot;test_controller_generator&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;refactor&quot;&gt;Refactor&lt;/h3&gt;
+
+&lt;p&gt;If we were following TDD now would be a good time to apply the refactor step. In a proper TDD flow we would have done this tests first (red step). Afterwards we would have done the implementation for the behavior (green step). Finally we would follow a last refactor step.&lt;/p&gt;
+
+&lt;p&gt;We have the confidence from the fresh new tests to back our refactor approaches. We have now captured all the tests from the controller from the service. Now would be a good opportunity to move all that fat logic away from the controller and put it somewhere else.&lt;/p&gt;
+
+&lt;p&gt;This step will involve the creation of a new test suite regarding the required business logic which is actually not fully being tested right now. If we see the logic from the controller the only thing being displayed is the animal being adopted. On the other hand if we do not find the user we retrieve a nil which the controller then parses into a error tuple.&lt;/p&gt;
+
+&lt;h4 id=&quot;special-refactor-step&quot;&gt;Special refactor step&lt;/h4&gt;
+
+&lt;p&gt;In this special case we already have the logic we need to move from the controller into a new module. In one hand we could move the logic from the controller into a new module and check if controller tests had been broken. On the other hand we can define the test suite covering the new module containing all the moved logic.&lt;/p&gt;
+
+&lt;p&gt;I prefer to do the latter option so lets define the test suite. This suite is going to cover the logic from the adoption request from our foster shelter.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/contract-based/action_logic_test.png&quot; alt=&quot;action_logic_test&quot; /&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;real-refactor-step&quot;&gt;Real refactor step&lt;/h4&gt;
+
+&lt;p&gt;Lets move all the logic from the controller into another module keeping all the behavior as expected already being tested in the previous test suite.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/contract-based/action_logic.png&quot; alt=&quot;action_logic&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;After running the previously created for the new module we can see the behavior has been captured.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/contract-based/check_testing_action.png&quot; alt=&quot;check_testing_action&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Now that we have defined the logic inside another module lets call from the controller the new module with the existing logic:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/contract-based/clean_controller.png&quot; alt=&quot;clean_controller&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Now how can be sure we have the expected behavior from our service? Let’s make a quick call for the controller tests.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/contract-based/check_controller_test.png&quot; alt=&quot;check_controller_test&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;What happens if my controller tests failed in this last step? This means you did more than just refactor in this step. Also could be you missed some behavior from the logic from the adoption request from the users of the service.&lt;/p&gt;
+
+&lt;h2 id=&quot;contract-based-testing-&quot;&gt;Contract based testing 📑&lt;/h2&gt;
+
+&lt;p&gt;As far as we have got right now we didn’t change the logic itself. Just rearrange the parameters from one place into another. Lets move a bit the dependency modules we have right now. We can spot we are making use of the database calls from the next modules:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/contract-based/database_modules.png&quot; alt=&quot;database_modules&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;If we check the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Animals&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Customers&lt;/code&gt; modules we can see the modules are also making calls into the Repo module. I will not dive into what exactly is. The important here is that Repo module makes calls into the database. In our testing environment the Repo module will make calls into the testing database.&lt;/p&gt;
+
+&lt;p&gt;For the next steps we will move the database dependencies into the function parameters itself. We can see the adoption business action logic being applied contracts inside the own business action module. The following code would represent the abstraction from the database modules:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/contract-based/action_contract_logic.png&quot; alt=&quot;action_contract_logic&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;If we run again the tests from before we can still see that the tests are still running. We didn’t change anything yet 🤓&lt;/p&gt;
+
+&lt;h2 id=&quot;test-dependencies&quot;&gt;Test dependencies&lt;/h2&gt;
+
+&lt;p&gt;As we have spotted previously we have some database dependency for the testing. Right now our &lt;a href=&quot;https://phoenixframework.org/&quot;&gt;Phoenix&lt;/a&gt; service is quite smart. In the tasks our service performs we can see the following ones:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/contract-based/mix_exs.png&quot; alt=&quot;mix_exs&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;We can spot there the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;mix test&lt;/code&gt; task does not only perform the test task. It also performs the creation for the test database. Moreover the migrations for the test database. This means before running the tests the application sets up the test database.&lt;/p&gt;
+
+&lt;p&gt;Lets see what happens if we make the &lt;a href=&quot;https://phoenixframework.org/&quot;&gt;Phoenix&lt;/a&gt; application dumb. Lets make the testing dependency raise issues. For this purposes we have to delete the test alias and make it only perform the tests. We have to change the test mix alias:&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;test: [&quot;test&quot;]&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Lets now perform a test correlated mix task. Right afterwards lets perform again: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;mix test&lt;/code&gt; again and see what happens.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/contract-based/db_not_working.png&quot; alt=&quot;db_not_working&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;As we can see we didn’t change anything from the test files themselves. We just deleted the database related for the testing. This would relate as if we had a request into another service and the other service was down.&lt;/p&gt;
+
+&lt;p&gt;We didn’t change the tests from our service by any means. Although we changed the configuration required for the tests. Now we have to question ourselves if the testing we have right now is the testing we want to perform for our service.&lt;/p&gt;
+
+&lt;h2 id=&quot;mocking-time-&quot;&gt;Mocking time! 🚀&lt;/h2&gt;
+
+&lt;p&gt;Now its time to give a reshape for our testing suite. We will not change the test implementation itself. Although we will mock the database dependency. This will mean we have to create the module mocks for this purpose. The following modules have to be defined in a place were elixir compiles, as we need them available for the tests. We can put this modules inside: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;test/support&lt;/code&gt; for example. The module mocks would look something like:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/contract-based/mocks.png&quot; alt=&quot;mocks&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Please bear in mind that you can check with the database dependency how the output for the required methods is required. Like any other testing dependency you have to double check the contract you will be mocking.&lt;/p&gt;
+
+&lt;p&gt;Now we can change the testing suite and make it use our own mocks. This will mean we don’t need the database connection for passing our tests. The code changed for this will be the following:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/contract-based/action_contract_test.png&quot; alt=&quot;action_contract_test&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;This has been quite a journey for decoupling the database dependency out from the test suite. If you run the tests again you can see the &lt;a href=&quot;https://phoenixframework.org/&quot;&gt;Phoenix&lt;/a&gt; application still tries to check the database connection. Although afterwards the tests end up all green to our liking.&lt;/p&gt;</content><author><name></name></author><category term="software" /><category term="development" /><category term="contract" /><category term="based" /><category term="end" /><category term="to" /><category term="testing" /><category term="elixir" /><category term="ruby" /><summary type="html">But first let’s talk dirty about testing 🐛</summary></entry><entry><title type="html">First job/internship</title><link href="http://localhost:4000/first-job/" rel="alternate" type="text/html" title="First job/internship" /><published>2020-11-10T00:00:00+01:00</published><updated>2020-11-10T00:00:00+01:00</updated><id>http://localhost:4000/first-job</id><content type="html" xml:base="http://localhost:4000/first-job/">&lt;p&gt;We all have been there, we all have been through it, and you will too 💪. We all, as humans beings, need to conquer the very first job/internship from our lives. We might have different personal motives to accomplish this personal milestone. Moreover the end of this goal may shift from one another. For example:&lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;You might need this job to validate yourself to someone. That someone could be your parent, someone you love or yourself 💕&lt;/li&gt;
@@ -37,7 +217,7 @@
 
 &lt;h2 id=&quot;impostor-syndrome&quot;&gt;Impostor syndrome&lt;/h2&gt;
 
-&lt;p&gt;There are a lot of resources regarding this topic. I will leave some of them at the bottom of this post. The first time this syndrome was studied was in a group of female college students by Pauline Rose Clance and Suzanne Imes (&lt;a href=&quot;https://www.paulineroseclance.com/pdf/ip_high_achieving_women.pdf&quot;&gt;research&lt;/a&gt;).&lt;/p&gt;
+&lt;p&gt;There are a lot of resources regarding this topic. I will leave some of them at the bottom of this post. The first time this syndrome was studied was in a group of female college students by Pauline Rose Clance and Suzanne Imes (&lt;a href=&quot;https://www.paulineroseclance.com/pdf/ip_high_achieving_women.pdf&quot;&gt;research paper&lt;/a&gt;).&lt;/p&gt;
 
 &lt;p&gt;Lets define the impostor syndrome as an individual feeling. This feeling can unravel other kind of deep feelings but that might be a good idea to tackle them with some help from 👨‍⚕️👩‍⚕️🏥&lt;/p&gt;
 
@@ -58,4 +238,4 @@ Make visible the struggles 🤕 from your experiences, break the chain ⛓ of fl
 
 &lt;p&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=ZQUxL4Jm1Lo&amp;amp;ab_channel=TED-Ed&quot;&gt;TED-ed video&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&quot;https://www.paulineroseclance.com/pdf/ip_high_achieving_women.pdf&quot;&gt;First research&lt;/a&gt;&lt;/p&gt;</content><author><name></name></author><category term="software" /><category term="developer" /><category term="first" /><category term="job" /><category term="internship" /><summary type="html">We all have been there, we all have been through it, and you will too 💪. We all, as humans beings, need to conquer the very first job/internship from our lives. We might have different personal motives to accomplish this personal milestone. Moreover the end of this goal may shift from one another. For example:</summary></entry></feed>
+&lt;p&gt;&lt;a href=&quot;https://www.paulineroseclance.com/pdf/ip_high_achieving_women.pdf&quot;&gt;First research paper&lt;/a&gt;&lt;/p&gt;</content><author><name></name></author><category term="software" /><category term="developer" /><category term="first" /><category term="job" /><category term="internship" /><summary type="html">We all have been there, we all have been through it, and you will too 💪. We all, as humans beings, need to conquer the very first job/internship from our lives. We might have different personal motives to accomplish this personal milestone. Moreover the end of this goal may shift from one another. For example:</summary></entry></feed>

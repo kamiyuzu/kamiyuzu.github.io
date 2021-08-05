@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Let's talk contract-based – Alberto Revuelta Arribas – Software engineer</title>
+
+        <meta charset="utf-8" />
+    <meta content='text/html; charset=utf-8' http-equiv='Content-Type'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0'>
+
+    
+    <meta name="description" content="But first let’s talk dirty about testing 🐛
+
+" />
+    <meta property="og:description" content="But first let’s talk dirty about testing 🐛
+
+" />
+    
+    <meta name="author" content="Alberto Revuelta Arribas" />
+
+    
+    <meta property="og:title" content="Let's talk contract-based" />
+    <meta property="twitter:title" content="Let's talk contract-based" />
+    
+
+    <!--[if lt IE 9]>
+      <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <link rel="stylesheet" type="text/css" href="/style.css" />
+    <link rel="alternate" type="application/rss+xml" title="Alberto Revuelta Arribas - Software engineer" href="/feed.xml" />
+
+    <!-- Created with Jekyll Now - http://github.com/barryclark/jekyll-now -->
+  </head>
+
+  <body>
+    <div class="wrapper-masthead">
+      <div class="container">
+        <header class="masthead clearfix">
+          <a href="/" class="site-avatar"><img src="/images/github_avatar.png" /></a>
+
+          <div class="site-info">
+            <h1 class="site-name"><a href="/">Alberto Revuelta Arribas</a></h1>
+            <p class="site-description">Software engineer</p>
+          </div>
+
+          <nav>
+            <a href="/">Blog</a>
+            <a href="/about">About</a>
+          </nav>
+        </header>
+      </div>
+    </div>
+
+    <div id="main" role="main" class="container">
+      <article class="post">
+  <h1>Let's talk contract-based</h1>
+
+  <div class="entry">
+    <p>But first let’s talk dirty about testing 🐛</p>
+
+<p>Why do we need them? What are they? Which types are they? Why the !$@* should I write them every time I develop something new?</p>
+
+<p>Moreover why should I take care of the existing ones regarding old code. This case is the worst one if the logic is hard to understand… 🤦</p>
+
+<p>If you want to get the grasp about why this is important please read
+<a href="https://www.amazon.com/Clean-Code-Handbook-Software-Craftsmanship/dp/0132350882">Clean Code: A Handbook of Agile Software Craftsmanship</a>
+from Robert C. Martin. Research a bit about the scout rule inside the book.</p>
+
+<p>Moreover if you feel like you need more knowledge for tackling big legacy code please read <a href="https://www.amazon.com/Working-Effectively-Legacy-Michael-Feathers/dp/0131177052">Working Effectively with Legacy Code</a> from Michael Feathers.</p>
+
+<h2 id="what-is-a-test-">What is a test 🤔</h2>
+
+<p>A test is a reusable code from your application which returns the same result over and over again. This means tests are idempotent, it doesn’t matter how many times you run the test suite from your service.</p>
+
+<p>The result from running your tests the first time and the 147092380th time should be the exact same result ✅. If the test suite fails 🚫 at the 10th run it means you have a 🐛 somewhere. This bug might be related to concurrency, shadowing, etc you name it 🤷</p>
+
+<p>There are lot of programming languages and lots of testing frameworks. Let’s illustrate one simple test making use of one of the best testing frameworks out there from <a href="https://www.ruby-lang.org/en/">Ruby programming language</a>. The framework from this example is <a href="https://rspec.info/">Rspec</a>. The following code should give you a more detailed example 😄:</p>
+
+<p><img src="/images/contract-based/rspec.png" alt="rspec" /></p>
+
+<h2 id="why-do-we-need-testing-">Why do we need testing 👮</h2>
+
+<p>Lets expose a possible scenario where you can end up being. This scenario isn’t true luckily for Coverwallet developers 🚀 Our mental health is relieved to not be in this scenario 🤣 Let’s see how many of you can echo or feel that had been in this situation 💀</p>
+
+<p>Imagine entering a new job. All the software tooling you are surrounded with, it’s the one you are familiar with. You have all the technical knowledge required to work with the stack. Although the codebase has around 3000 lines of code. Moreover, no testing can be found. The documentation you are striving for is shinning by its absence.</p>
+
+<p>Now that you are inside the company you are in charge of the huge codebase they have. They ask you to implement some new business logic into the bright new codebase you have now inherited.</p>
+
+<p>What are you going to do now? How will you deliver new business logic? How can you be sure that the new logic is not going to have side effects? Are you confident enough to deliver the required new business logic without testing?</p>
+
+<p>Your software developer guts already are telling you to start things slow and steady. This means to start writing tests for the side business logic affected by this new requirement. You have the approval from product to spend some huge extra time doing this task. We will focus in this first test existing behavior from the existing codebase.</p>
+
+<p>Now that we have a firm determination towards the creation of a healthy codebase. How are we going to do it? 🤷</p>
+
+<p>First of all let’s talk a bit on which types of testing we have. Let’s just talk about the mainstream tests used among all developers.</p>
+
+<h2 id="which-types-of-testing-there-are-">Which types of testing there are? 🤔</h2>
+
+<p>There are three types of testing you can develop taken into account always your use case. We will give a brief explanation about all of them.</p>
+
+<h3 id="unit-testing">Unit testing</h3>
+
+<p>This type of testing focus on the smallest parts of your codebase. Most commonly the public functions you expose into your public service behaviors.</p>
+
+<h3 id="integration-testing">Integration testing</h3>
+
+<p>The integration testing aims to check for more than one layer of dependency inside your codebase. All external requests into any dependency like another service, or a database. As the dependencies can have latency this kind of testing might run a lot slower compared to unit testing.</p>
+
+<h3 id="end-to-end-testing-or-functional">End to end testing or functional</h3>
+
+<p>This last tests can be seen as chained integration testing. The focus of this testing is to check your whole application works as expected. Checking everything you can pull the thread from one end into the start.</p>
+
+<p>You can think an example of this testing as tests which checks app the user interface any user can make use of. The goal of this testing is to actually corroborate that the end user can perform what she wants.</p>
+
+<h2 id="how-am-i-going-to-test-it-">How am I going to test it? 😓</h2>
+
+<p>Now it’s time to decide how we want to test the existing huge codebase we have to maintain. Te new business request involves some changes in an existing endpoint from the service.</p>
+
+<p>To test this existing code we would follow the London TDD approach. I know we have already the code and how TDD clashes with existing code. If you want to learn more about London TDD approach you can checkout: <a href="https://team-agile.com/2021/02/06/chicago-and-london-style-tdd/">blog post</a>. Moreover to learn more about TDD you can check the video: <a href="https://www.youtube.com/watch?v=EZ05e7EMOLM&amp;ab_channel=DevTernity">TDD, Where Did It All Go Wrong</a> or the book: <a href="https://www.amazon.com/Test-Driven-Development-Kent-Beck/dp/0321146530">Test Driven Development: By Example</a> from Kent Beck.</p>
+
+<p>To wrap up the important thing we want to highlight from the London TDD approach is to test from the outside in. Test things from the outside of the service towards the business logic into the core.</p>
+
+<h2 id="service-example">Service example</h2>
+
+<p>Let’s give an example on how is the existing service. Although I would just highlight the code we are going to work with. This will make it somewhat easier as the goal of this post is to learn how to test making use of a type of mocks.</p>
+
+<p>The service we have inherited is in charge of dealing with the adoption of animals from a local shelter. The service is a <a href="https://phoenixframework.org/">Phoenix</a> application which makes use of <a href="https://elixir-lang.org/">Elixir programing language</a>.</p>
+
+<p>The first and only part we will start testing is for the adoption of an animal from the foster local shelter.</p>
+
+<h2 id="elixir-coding-example">Elixir coding example</h2>
+
+<p>This is the sample code from the controller file: <code class="language-plaintext highlighter-rouge">lib/foster_shelter_bigotitos_web/controllers/animal_controller.ex</code></p>
+
+<p><img src="/images/contract-based/controller_generator.png" alt="controller_generator" /></p>
+
+<p>This code is a piece of smelly cheese as you all can see. All the logic is inside the controller from the <a href="https://phoenixframework.org/">Phoenix</a> application. Although we will try to test the existing code making a segregation from the different layers we have in the shown example.</p>
+
+<h2 id="lets-start-testing-">Lets start testing! 🚀</h2>
+
+<p>The code we want to test is a request into our server. Lets see from the available routes which is the path for the request:</p>
+
+<p><img src="/images/contract-based/phx_routes.png" alt="controller_generator" /></p>
+
+<p>As we can see <a href="https://phoenixframework.org/">Phoenix</a> works with paths: <code class="language-plaintext highlighter-rouge">animal_path</code> is the only path we will be interested in. Both PATCH and PUT HTTP requests go through the same controller update/2 method. Now that we now how the users enter our service lets test the controller from the service.</p>
+
+<h3 id="testing-errors-from-controller---green">Testing errors from controller - Green</h3>
+
+<p>In this first approach we will test the existing behavior from the controller. It doesn’t matter the parameters from the shelter animal from the adoption request. The only important thing from the actual adoption request is the customer email. This information will allow us to retrieve all the customer information from the service. If we can’t make this relationship the adoption request will fail.</p>
+
+<p>I have put as an example below a possible testing suite which more less fits the actual behavior from the legacy codebase we have inherited. The code needed for this test suite is massive. Moreover we need to actually create the database items for the controller testing. This means we have database dependency inside our testing suite.</p>
+
+<p>There is a lot of code from the actual test suite which is screaming to be moved out of this context. The way a test needs to be structured, all the dependencies it requires it will also tell you where it really needs to be. Without further ado check in the example below a simple testing for this legacy codebase.</p>
+
+<p><img src="/images/contract-based/test_controller_generators.png" alt="test_controller_generator" /></p>
+
+<h3 id="refactor">Refactor</h3>
+
+<p>If we were following TDD now would be a good time to apply the refactor step. In a proper TDD flow we would have done this tests first (red step). Afterwards we would have done the implementation for the behavior (green step). Finally we would follow a last refactor step.</p>
+
+<p>We have the confidence from the fresh new tests to back our refactor approaches. We have now captured all the tests from the controller from the service. Now would be a good opportunity to move all that fat logic away from the controller and put it somewhere else.</p>
+
+<p>This step will involve the creation of a new test suite regarding the required business logic which is actually not fully being tested right now. If we see the logic from the controller the only thing being displayed is the animal being adopted. On the other hand if we do not find the user we retrieve a nil which the controller then parses into a error tuple.</p>
+
+<h4 id="special-refactor-step">Special refactor step</h4>
+
+<p>In this special case we already have the logic we need to move from the controller into a new module. In one hand we could move the logic from the controller into a new module and check if controller tests had been broken. On the other hand we can define the test suite covering the new module containing all the moved logic.</p>
+
+<p>I prefer to do the latter option so lets define the test suite. This suite is going to cover the logic from the adoption request from our foster shelter.</p>
+
+<p><img src="/images/contract-based/action_logic_test.png" alt="action_logic_test" /></p>
+
+<h4 id="real-refactor-step">Real refactor step</h4>
+
+<p>Lets move all the logic from the controller into another module keeping all the behavior as expected already being tested in the previous test suite.</p>
+
+<p><img src="/images/contract-based/action_logic.png" alt="action_logic" /></p>
+
+<p>After running the previously created for the new module we can see the behavior has been captured.</p>
+
+<p><img src="/images/contract-based/check_testing_action.png" alt="check_testing_action" /></p>
+
+<p>Now that we have defined the logic inside another module lets call from the controller the new module with the existing logic:</p>
+
+<p><img src="/images/contract-based/clean_controller.png" alt="clean_controller" /></p>
+
+<p>Now how can be sure we have the expected behavior from our service? Let’s make a quick call for the controller tests.</p>
+
+<p><img src="/images/contract-based/check_controller_test.png" alt="check_controller_test" /></p>
+
+<p>What happens if my controller tests failed in this last step? This means you did more than just refactor in this step. Also could be you missed some behavior from the logic from the adoption request from the users of the service.</p>
+
+<h2 id="contract-based-testing-">Contract based testing 📑</h2>
+
+<p>As far as we have got right now we didn’t change the logic itself. Just rearrange the parameters from one place into another. Lets move a bit the dependency modules we have right now. We can spot we are making use of the database calls from the next modules:</p>
+
+<p><img src="/images/contract-based/database_modules.png" alt="database_modules" /></p>
+
+<p>If we check the <code class="language-plaintext highlighter-rouge">Animals</code> and <code class="language-plaintext highlighter-rouge">Customers</code> modules we can see the modules are also making calls into the Repo module. I will not dive into what exactly is. The important here is that Repo module makes calls into the database. In our testing environment the Repo module will make calls into the testing database.</p>
+
+<p>For the next steps we will move the database dependencies into the function parameters itself. We can see the adoption business action logic being applied contracts inside the own business action module. The following code would represent the abstraction from the database modules:</p>
+
+<p><img src="/images/contract-based/action_contract_logic.png" alt="action_contract_logic" /></p>
+
+<p>If we run again the tests from before we can still see that the tests are still running. We didn’t change anything yet 🤓</p>
+
+<h2 id="test-dependencies">Test dependencies</h2>
+
+<p>As we have spotted previously we have some database dependency for the testing. Right now our <a href="https://phoenixframework.org/">Phoenix</a> service is quite smart. In the tasks our service performs we can see the following ones:</p>
+
+<p><img src="/images/contract-based/mix_exs.png" alt="mix_exs" /></p>
+
+<p>We can spot there the <code class="language-plaintext highlighter-rouge">mix test</code> task does not only perform the test task. It also performs the creation for the test database. Moreover the migrations for the test database. This means before running the tests the application sets up the test database.</p>
+
+<p>Lets see what happens if we make the <a href="https://phoenixframework.org/">Phoenix</a> application dumb. Lets make the testing dependency raise issues. For this purposes we have to delete the test alias and make it only perform the tests. We have to change the test mix alias:</p>
+
+<p><code class="language-plaintext highlighter-rouge">test: ["test"]</code></p>
+
+<p>Lets now perform a test correlated mix task. Right afterwards lets perform again: <code class="language-plaintext highlighter-rouge">mix test</code> again and see what happens.</p>
+
+<p><img src="/images/contract-based/db_not_working.png" alt="db_not_working" /></p>
+
+<p>As we can see we didn’t change anything from the test files themselves. We just deleted the database related for the testing. This would relate as if we had a request into another service and the other service was down.</p>
+
+<p>We didn’t change the tests from our service by any means. Although we changed the configuration required for the tests. Now we have to question ourselves if the testing we have right now is the testing we want to perform for our service.</p>
+
+<h2 id="mocking-time-">Mocking time! 🚀</h2>
+
+<p>Now its time to give a reshape for our testing suite. We will not change the test implementation itself. Although we will mock the database dependency. This will mean we have to create the module mocks for this purpose. The following modules have to be defined in a place were elixir compiles, as we need them available for the tests. We can put this modules inside: <code class="language-plaintext highlighter-rouge">test/support</code> for example. The module mocks would look something like:</p>
+
+<p><img src="/images/contract-based/mocks.png" alt="mocks" /></p>
+
+<p>Please bear in mind that you can check with the database dependency how the output for the required methods is required. Like any other testing dependency you have to double check the contract you will be mocking.</p>
+
+<p>Now we can change the testing suite and make it use our own mocks. This will mean we don’t need the database connection for passing our tests. The code changed for this will be the following:</p>
+
+<p><img src="/images/contract-based/action_contract_test.png" alt="action_contract_test" /></p>
+
+<p>This has been quite a journey for decoupling the database dependency out from the test suite. If you run the tests again you can see the <a href="https://phoenixframework.org/">Phoenix</a> application still tries to check the database connection. Although afterwards the tests end up all green to our liking.</p>
+
+
+  </div>
+
+  <div class="date">
+    Written on July 26, 2021
+  </div>
+
+  
+</article>
+
+    </div>
+
+    <div class="wrapper-footer">
+      <div class="container">
+        <footer class="footer">
+          
+<a href="mailto:alberto.rev.a@gmail.com"><i class="svg-icon email"></i></a>
+
+
+<a href="https://github.com/kamiyuzu"><i class="svg-icon github"></i></a>
+
+<a href="https://www.linkedin.com/in/alberto-r-386745145"><i class="svg-icon linkedin"></i></a>
+
+
+<a href="https://www.twitter.com/hiimkamiyuzu"><i class="svg-icon twitter"></i></a>
+
+
+
+        </footer>
+      </div>
+    </div>
+
+    
+
+  </body>
+</html>
