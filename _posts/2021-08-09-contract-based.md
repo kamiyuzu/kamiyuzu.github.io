@@ -121,7 +121,7 @@ The first and only part we will start testing is for the adoption of an animal f
 
 ## Elixir coding example
 
-This is the sample code from the controller file: `lib/foster_shelter_bigotitos_web/controllers/animal_controller.ex`
+This is the sample code from the controller file: [`lib/foster_shelter_bigotitos_web/controllers/animal_controller.ex`][animal_controller.ex]
 
 ![controller_generator](/images/contract-based/controller_generator.png)
 
@@ -135,7 +135,7 @@ The code we want to test is a request into our server. Lets see from the availab
 
 As we can see [Phoenix][Phoenix] works with paths: `animal_path` is the only path we will be interested in. Both PATCH and PUT HTTP requests go through the same controller update/2 method. Now that we know how the users enter our service lets test the controller from the service.
 
-### Testing errors from controller - Green
+### Testing errors from controller - Green 🟢
 
 In this first approach we will test the existing behavior from the controller. It doesn't matter the parameters from the shelter animal from the adoption request. The only important thing from the actual adoption request is the customer email. This information will allow us to retrieve all the customer information from the service. If we can't make this relationship the adoption request will fail.
 
@@ -239,3 +239,4 @@ This has been quite a journey for decoupling the database dependency out from th
 [Phoenix]: https://phoenixframework.org/
 [Elixir]: https://elixir-lang.org/
 [Growing Object-Oriented Software, Guided by Tests]: https://www.amazon.es/Growing-Object-Oriented-Software-Guided-Signature/dp/0321503627
+[animal_controller.ex]: https://github.com/kamiyuzu/foster_shelter_bigotitos/blob/f7d5ea1af61156b5430d215d4de1aa450252797e/lib/foster_shelter_bigotitos_web/controllers/animal_controller.ex#L30-L47

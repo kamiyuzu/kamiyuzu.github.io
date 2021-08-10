@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2021-08-10T10:22:15+02:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Alberto Revuelta Arribas</title><subtitle>Software engineer</subtitle><entry><title type="html">Let’s talk contract-based</title><link href="http://localhost:4000/contract-based/" rel="alternate" type="text/html" title="Let’s talk contract-based" /><published>2021-08-09T00:00:00+02:00</published><updated>2021-08-09T00:00:00+02:00</updated><id>http://localhost:4000/contract-based</id><content type="html" xml:base="http://localhost:4000/contract-based/">&lt;p&gt;But first let’s talk dirty about testing 🐛&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2021-08-10T12:31:59+02:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Alberto Revuelta Arribas</title><subtitle>Software engineer</subtitle><entry><title type="html">Let’s talk contract-based</title><link href="http://localhost:4000/contract-based/" rel="alternate" type="text/html" title="Let’s talk contract-based" /><published>2021-08-09T00:00:00+02:00</published><updated>2021-08-09T00:00:00+02:00</updated><id>http://localhost:4000/contract-based</id><content type="html" xml:base="http://localhost:4000/contract-based/">&lt;p&gt;But first let’s talk dirty about testing 🐛&lt;/p&gt;
 
 &lt;p&gt;Why do we need them? What are they? Which types are there? Why the !$@* should I write them every time I develop something new?&lt;/p&gt;
 
@@ -117,7 +117,7 @@
 
 &lt;h2 id=&quot;elixir-coding-example&quot;&gt;Elixir coding example&lt;/h2&gt;
 
-&lt;p&gt;This is the sample code from the controller file: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;lib/foster_shelter_bigotitos_web/controllers/animal_controller.ex&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;This is the sample code from the controller file: &lt;a href=&quot;https://github.com/kamiyuzu/foster_shelter_bigotitos/blob/f7d5ea1af61156b5430d215d4de1aa450252797e/lib/foster_shelter_bigotitos_web/controllers/animal_controller.ex#L30-L47&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;lib/foster_shelter_bigotitos_web/controllers/animal_controller.ex&lt;/code&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;/images/contract-based/controller_generator.png&quot; alt=&quot;controller_generator&quot; /&gt;&lt;/p&gt;
 
@@ -131,7 +131,7 @@
 
 &lt;p&gt;As we can see &lt;a href=&quot;https://phoenixframework.org/&quot;&gt;Phoenix&lt;/a&gt; works with paths: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;animal_path&lt;/code&gt; is the only path we will be interested in. Both PATCH and PUT HTTP requests go through the same controller update/2 method. Now that we know how the users enter our service lets test the controller from the service.&lt;/p&gt;
 
-&lt;h3 id=&quot;testing-errors-from-controller---green&quot;&gt;Testing errors from controller - Green&lt;/h3&gt;
+&lt;h3 id=&quot;testing-errors-from-controller---green-&quot;&gt;Testing errors from controller - Green 🟢&lt;/h3&gt;
 
 &lt;p&gt;In this first approach we will test the existing behavior from the controller. It doesn’t matter the parameters from the shelter animal from the adoption request. The only important thing from the actual adoption request is the customer email. This information will allow us to retrieve all the customer information from the service. If we can’t make this relationship the adoption request will fail.&lt;/p&gt;
 

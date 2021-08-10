@@ -176,7 +176,7 @@
 
 <h2 id="elixir-coding-example">Elixir coding example</h2>
 
-<p>This is the sample code from the controller file: <code class="language-plaintext highlighter-rouge">lib/foster_shelter_bigotitos_web/controllers/animal_controller.ex</code></p>
+<p>This is the sample code from the controller file: <a href="https://github.com/kamiyuzu/foster_shelter_bigotitos/blob/f7d5ea1af61156b5430d215d4de1aa450252797e/lib/foster_shelter_bigotitos_web/controllers/animal_controller.ex#L30-L47"><code class="language-plaintext highlighter-rouge">lib/foster_shelter_bigotitos_web/controllers/animal_controller.ex</code></a></p>
 
 <p><img src="/images/contract-based/controller_generator.png" alt="controller_generator" /></p>
 
@@ -190,7 +190,7 @@
 
 <p>As we can see <a href="https://phoenixframework.org/">Phoenix</a> works with paths: <code class="language-plaintext highlighter-rouge">animal_path</code> is the only path we will be interested in. Both PATCH and PUT HTTP requests go through the same controller update/2 method. Now that we know how the users enter our service lets test the controller from the service.</p>
 
-<h3 id="testing-errors-from-controller---green">Testing errors from controller - Green</h3>
+<h3 id="testing-errors-from-controller---green-">Testing errors from controller - Green 🟢</h3>
 
 <p>In this first approach we will test the existing behavior from the controller. It doesn’t matter the parameters from the shelter animal from the adoption request. The only important thing from the actual adoption request is the customer email. This information will allow us to retrieve all the customer information from the service. If we can’t make this relationship the adoption request will fail.</p>
 
