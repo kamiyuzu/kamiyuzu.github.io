@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  Let's talk contract-based
-date:   "2021-08-09"
+date:   "2021-08-17"
 categories: software development contract based end to end testing elixir ruby
 ---
 But first let’s talk dirty about testing 🐛
