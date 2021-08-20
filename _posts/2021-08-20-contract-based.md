@@ -228,7 +228,7 @@ Now we can change the testing suite and make it use our own mocks. This will mea
 
 This has been quite a journey for decoupling the database dependency out of the test suite. If you run the tests again you can see the [Phoenix][Phoenix] application still tries to check the database connection. Although afterward the tests end up all green to our liking.
 
-Here in Coverwallet we have tons of engineers and lots of ways of testing. Moreover, a QA team is in charge of ensuring all our applications work as expected. In my team, we have TDD and non-TDD developers. One group isn’t better than the other, they just have different development processes. There are tons of ways to end up in a healthy codebase state. You just have to find your own way for it. Try out TDD or BDD and see how this change swaps your process of thinking and developing a resolution for your needs.
+Here in Coverwallet, we have tons of engineers and lots of ways of testing. Moreover, a QA team is in charge of ensuring all our applications work as expected. In my team, we have TDD and non-TDD developers. One group isn't better than the other, they just have different development processes. There are tons of ways to end up in a healthy codebase state. You just have to find your own way for it. Try out TDD or BDD and see how this change swaps your process of thinking and developing business solutions.
 
 [clean-code]: https://www.amazon.com/Clean-Code-Handbook-Software-Craftsmanship/dp/0132350882
 [legacy-code]: https://www.amazon.com/Working-Effectively-Legacy-Michael-Feathers/dp/0131177052
